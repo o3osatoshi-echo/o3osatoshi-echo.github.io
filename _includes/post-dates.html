@@ -1,0 +1,35 @@
+{%- assign doc = include.item | default: page -%}
+{%- assign date_format = include.date_format | default: site.minima.date_format | default: "%b %-d, %Y" -%}
+
+{%- assign post_dates_show_modified = false -%}
+
+{%- assign published_iso = doc.date | date_to_xmlschema -%}
+{%- assign published_display = doc.date | date: date_format -%}
+
+{%- assign modified_iso = nil -%}
+{%- assign modified_display = nil -%}
+
+{%- if doc.modified_date -%}
+  {%- assign published_stamp = doc.date | date: "%s" -%}
+  {%- assign modified_stamp = doc.modified_date | date: "%s" -%}
+  {%- if modified_stamp != published_stamp -%}
+    {%- assign post_dates_show_modified = true -%}
+    {%- assign modified_iso = doc.modified_date | date_to_xmlschema -%}
+    {%- assign modified_display = doc.modified_date | date: date_format -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- assign published_class = 'post-meta__item dt-published' -%}
+{%- if include.published_class -%}
+  {%- assign published_class = published_class | append: ' ' | append: include.published_class -%}
+{%- endif -%}
+
+{%- assign modified_class = 'post-meta__item dt-modified' -%}
+{%- if include.modified_class -%}
+  {%- assign modified_class = modified_class | append: ' ' | append: include.modified_class -%}
+{%- endif -%}
+
+{%- if post_dates_show_modified -%}
+<time class="{{ modified_class }}" datetime="{{ modified_iso }}" aria-label="{{ include.modified_label | default: '更新日' }}: {{ modified_display }}"{% if include.modified_itemprop %} itemprop="{{ include.modified_itemprop }}"{% endif %}>{% include icons/rotate-cw.svg %} {{ modified_display }}</time>
+{%- endif -%}
+<time class="{{ published_class }}" datetime="{{ published_iso }}" aria-label="{{ include.published_label | default: '投稿日' }}: {{ published_display }}"{% if include.published_itemprop %} itemprop="{{ include.published_itemprop }}"{% endif %}>{% include icons/calendar.svg %} {{ published_display }}</time>

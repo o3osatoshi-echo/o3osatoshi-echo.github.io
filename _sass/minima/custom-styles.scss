@@ -1,0 +1,67 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+a.site-title {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-content {
+  h2 {
+    margin-top: 50px;
+    padding: 0.2em 0.5em;
+    background: $tm-color;
+    border: solid 2px white;
+    box-shadow: 0px 0px 0px 5px $tm-color;
+    text-align: center;
+  }
+
+  h3 {
+    margin-top: 40px;
+    border-bottom: solid 3px $tm-color;
+  }
+
+  h4 {
+    margin-top: 30px;
+    padding: 0.25em 0.5em;
+    border-left: solid 5px $tm-color;
+  }
+}
+
+code,
+pre,
+pre code,
+.highlight,
+.highlight code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.post-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.archive-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.archive-heading--spaced {
+  margin-top: 2em;
+}

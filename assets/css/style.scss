@@ -1,0 +1,70 @@
+---
+---
+
+@import
+"minima/skins/{{ site.minima.skin | default: 'classic' }}",
+"minima/initialize";
+
+
+.archive-section {
+  summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #666;
+    margin-right: .4rem;
+    transition: transform .25s ease;
+  }
+
+  .contributions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+
+  .square-size {
+    font-size: 0.8em;
+    min-width: 2ch;
+    text-align: right;
+    color: #374151;
+  }
+
+  .square {
+    display: inline-flex;
+    gap: 2px;
+  }
+  .square__unit {
+    width: 6px;
+    height: 6px;
+    background: #0a7cff;
+    border-radius: 2px;
+  }
+  .square__unit--pack {
+    background: #fbbf24;
+  }
+}
+
+.archive-section[open] > summary::before {
+  transform: rotate(180deg);
+}
+
+.child-group {
+  margin-left: 1.25rem;
+  padding-left: .75rem;
+}
