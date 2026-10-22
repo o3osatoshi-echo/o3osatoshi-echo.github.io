@@ -24,7 +24,7 @@
 ## Testing Guidelines
 - Run `bundle exec jekyll build` before every PR to ensure the site compiles cleanly.
 - `bundle exec jekyll doctor` surfaces configuration regressions and missing includes.
-- Preview scheduled work with `bundle exec jekyll serve --drafts --future` to verify dates and pagination.
+- Preview publishable content with `bundle exec jekyll serve`; keep private draft previews in a separate private working copy.
 - Manually confirm new links and images from the local preview to prevent broken references.
 
 ## Commit & Pull Request Guidelines
@@ -34,6 +34,8 @@
 - After merging, monitor the GitHub Pages build and note any manual follow-up in the PR thread.
 
 ## Content Workflow
-- Draft long-form pieces in `_drafts/`; move to `_posts/<category>/` when ready to publish.
+- This repository is public. Keep drafts and editable originals outside this checkout; add only approved articles to `_posts/<category>/`.
+- Do not add old Git history, `_drafts/`, `.idraw`, `.drawio`, local settings, or authentication material.
+- The original history and unfinished articles are retained privately; do not recover them into a public branch.
 - Update `_config.yml` when introducing new categories or collections so archives stay in sync.
 - Extract repeated callouts into `_includes/*-notice.md` to reduce duplication across posts.
